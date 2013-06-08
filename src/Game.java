@@ -64,7 +64,7 @@ public class Game {
 	public static void main(String[] args) throws LWJGLException {
 		skeletonArray[1] = new Skeleton(10,30f,0f,20f);
 		Display.setDisplayMode(new DisplayMode(width,height));
-		String title_value = Float.toString(x) + " " + Float.toString(y) + " " + Float.toString(z) + " HP: " + Float.toString(hp);
+		String title_value = "init";
 		Display.setTitle(title_value);
 		Display.create();
 		Game game = new Game();
@@ -73,7 +73,13 @@ public class Game {
 				!Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)){
 			game.render();
 			game.update();
-			title_value = Float.toString(x) + " " + Float.toString(y) + " " + Float.toString(z) + " HP: " + Float.toString(hp) + " " + Float.toString(xrot) + " " + Float.toString(yrot) + " " + Float.toString(zrot);
+			title_value = String.format("%.2f", x) + " " + 
+						  String.format("%.2f", y) + " " + 
+						  String.format("%.2f", z) + " HP: " +
+						  String.format("%.2f", hp) + " " + 
+						  String.format("%.2f", xrot) + " " + 
+						  String.format("%.2f",yrot) + " " + 
+						  String.format("%.2f", zrot) ;
 			hp = hp - skeletonArray[1].skeletonDamage(x, z);
 			Display.setTitle(title_value);
 			Display.update();
